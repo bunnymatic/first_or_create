@@ -1,0 +1,18 @@
+.container
+  h1 MyObjects
+  .span12
+    .new.row
+      = link_to 'new', new_my_object_path
+    .row
+      table.table.table-striped
+        tr
+          th Value
+          th
+        - @objects.each do |obj|
+          tr
+            td
+              = "[#{obj.id}] #{obj.required_number}"
+            td
+              = link_to 'edit', edit_my_object_path(obj)
+              = link_to "X", my_object_path(obj), :method => :delete, :class => "delete"
+   
